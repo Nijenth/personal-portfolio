@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio of Nijenth, a Creative AI Engineer specializing in Full Stack Development, UI/UX Design, and AI & Machine Learning. Check out my projects and skills.">
+    <meta name="author" content="Nijenth">
+    <title>Nijenth | Creative AI Engineer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Orbs for Ambient Glow -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-accent">&lt;</span>Nijenth<span class="logo-accent"> /&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content scroll-reveal">
+                    <span class="hero-badge">Available for Projects</span>
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Nijenth</span><br>
+                        <span class="typewriter-text">Creative AI Engineer</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        I am learning and building projects across Full Stack Software Engineering, UI/UX Design, and AI & Machine Learning. I craft intelligent solutions with beautiful, user-centric interfaces.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Let's Connect</span>
+                            <i data-lucide="mail"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Graphic Element / Interactive Display -->
+                <div class="hero-visual scroll-reveal">
+                    <div class="tech-card-wrapper">
+                        <div class="tech-card">
+                            <div class="tech-card-header">
+                                <div class="window-dot red"></div>
+                                <div class="window-dot yellow"></div>
+                                <div class="window-dot green"></div>
+                                <span class="window-title">ai_agent.py</span>
+                            </div>
+                            <div class="tech-card-body">
+                                <pre><code><span class="keyword">class</span> <span class="class-name">CreativeAgent</span>:
+    <span class="keyword">def</span> <span class="method">__init__</span>(<span class="variable">self</span>):
+        <span class="variable">self</span>.skills = [
+            <span class="string">"Full-Stack"</span>,
+            <span class="string">"UI/UX"</span>,
+            <span class="string">"AI/ML"</span>
+        ]
+        <span class="variable">self</span>.status = <span class="string">"Building the future"</span>
+
+    <span class="keyword">def</span> <span class="method">create</span>(<span class="variable">self</span>):
+        <span class="keyword">return</span> <span class="string">"Smart apps & beautiful UIs"</span></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#about" class="scroll-indicator" aria-label="Scroll to About Section">
+                <span class="mouse-icon">
+                    <span class="wheel"></span>
+                </span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                    <p class="section-description">A look into my journey, goals, and passions.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-info scroll-reveal">
+                        <h3 class="about-subtitle">Bridging Code, Creativity, & Intelligence</h3>
+                        <p>
+                            I'm a passionate builder focused on creating interfaces and intelligent applications. By combining full-stack development skills with clean UI/UX guidelines and modern AI/ML workflows, I aim to build systems that are not only highly functional but also intuitive and delightful to use.
+                        </p>
+                        <p>
+                            Currently, I am actively exploring large language models, agentic workflows, and frontend development. I thrive in the intersection of engineering and design, transforming complex logic into elegant web experiences.
+                        </p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number gradient-text">Full</span>
+                                <span class="stat-label">Stack Dev</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number gradient-text">UI/UX</span>
+                                <span class="stat-label">Designer</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number gradient-text">AI&ML</span>
+                                <span class="stat-label">Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-cards scroll-reveal">
+                        <div class="about-feature-card">
+                            <div class="card-icon"><i data-lucide="layers"></i></div>
+                            <h4>Full-Stack Engineering</h4>
+                            <p>Building responsive, modular, and fast web architectures from databases to clients.</p>
+                        </div>
+                        <div class="about-feature-card">
+                            <div class="card-icon"><i data-lucide="palette"></i></div>
+                            <h4>UI/UX Design</h4>
+                            <p>Creating user-centered flows, clean visual systems, and modern interactive designs.</p>
+                        </div>
+                        <div class="about-feature-card">
+                            <div class="card-icon"><i data-lucide="cpu"></i></div>
+                            <h4>AI & Machine Learning</h4>
+                            <p>Developing smart agents, utilizing LLM APIs, and exploring neural network architectures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                    <p class="section-description">The technologies and tools I work with daily.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Category 1: AI & ML -->
+                    <div class="skills-category scroll-reveal">
+                        <h3 class="category-title"><i data-lucide="brain"></i> AI & Machine Learning</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-name">Python & PyTorch</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">LLM APIs & Prompting</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Machine Learning Models</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Natural Language Processing</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 2: Frontend -->
+                    <div class="skills-category scroll-reveal">
+                        <h3 class="category-title"><i data-lucide="code-2"></i> Frontend Development</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-name">HTML5 & CSS3 / Flexbox / Grid</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">JavaScript (ES6+)</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">React / Next.js</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Responsive & Accessible Design</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 3: Backend & Tools -->
+                    <div class="skills-category scroll-reveal">
+                        <h3 class="category-title"><i data-lucide="terminal"></i> Backend & Development Tools</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-name">Node.js & Express</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">SQL & Databases (PostgreSQL / BigQuery)</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 78%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Git & GitHub workflows</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">REST APIs & Integrations</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Category 4: Design & Process -->
+                    <div class="skills-category scroll-reveal">
+                        <h3 class="category-title"><i data-lucide="pen-tool"></i> UI/UX Design</h3>
+                        <ul class="skills-list">
+                            <li>
+                                <div class="skill-name">Figma Prototyping</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Wireframing & User Flows</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Visual Systems & Typography</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-name">Interaction Design & Micro-animations</div>
+                                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                    <p class="section-description">Dynamically pulled directly from my GitHub profile.</p>
+                </div>
+
+                <!-- Projects Controls -->
+                <div class="projects-controls scroll-reveal">
+                    <div class="search-wrapper">
+                        <i data-lucide="search" class="search-icon"></i>
+                        <input type="text" id="projectSearch" placeholder="Search projects...">
+                    </div>
+                    <div class="filter-wrapper" id="filterContainer">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                        <button class="filter-btn" data-filter="python">Python</button>
+                        <button class="filter-btn" data-filter="html">HTML/CSS</button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Skeleton Cards for Loading State -->
+                    <div class="project-skeleton">
+                        <div class="skeleton-header"></div>
+                        <div class="skeleton-body-1"></div>
+                        <div class="skeleton-body-2"></div>
+                        <div class="skeleton-footer"></div>
+                    </div>
+                    <div class="project-skeleton">
+                        <div class="skeleton-header"></div>
+                        <div class="skeleton-body-1"></div>
+                        <div class="skeleton-body-2"></div>
+                        <div class="skeleton-footer"></div>
+                    </div>
+                    <div class="project-skeleton">
+                        <div class="skeleton-header"></div>
+                        <div class="skeleton-body-1"></div>
+                        <div class="skeleton-body-2"></div>
+                        <div class="skeleton-footer"></div>
+                    </div>
+                </div>
+                
+                <div class="more-projects scroll-reveal">
+                    <a href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <span>See More on GitHub</span>
+                        <i data-lucide="github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header scroll-reveal">
+                    <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                    <p class="section-description">Have a project idea, question, or just want to say hi?</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info scroll-reveal">
+                        <h3 class="contact-subtitle">Let's build something amazing together!</h3>
+                        <p>
+                            I am always looking for collaborative opportunities, interesting projects, and new technologies to learn. Drop me a line, and let's start a conversation.
+                        </p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i data-lucide="mail"></i></div>
+                                <div class="detail-content">
+                                    <h5>Email</h5>
+                                    <a href="mailto:nijenth11@gmail.com">nijenth11@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail-item">
+                                <div class="detail-icon"><i data-lucide="map-pin"></i></div>
+                                <div class="detail-content">
+                                    <h5>Location</h5>
+                                    <span>Available Worldwide (Remote / Hybrid)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrapper scroll-reveal">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span>Send Message</span>
+                                <i data-lucide="send"></i>
+                            </button>
+                            <div class="form-message" id="formMessage"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Nijenth. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="mailto:nijenth11@gmail.com" aria-label="Email">
+                    <i data-lucide="mail"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
