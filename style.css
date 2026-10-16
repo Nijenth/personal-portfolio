@@ -6,32 +6,32 @@
     --bg-secondary: #0c0b24;
     --bg-glass: rgba(255, 255, 255, 0.03);
     --bg-glass-hover: rgba(255, 255, 255, 0.06);
-    
+
     --border-glass: rgba(255, 255, 255, 0.08);
     --border-glass-focus: rgba(124, 58, 237, 0.5); /* Purple focus */
-    
+
     --color-text-primary: #f3f4f6;
     --color-text-secondary: #9ca3af;
     --color-text-muted: #6b7280;
-    
+
     --color-primary: #8b5cf6;       /* Neon Violet */
     --color-secondary: #06b6d4;     /* Neon Cyan */
     --color-accent: #3b82f6;        /* Electric Blue */
-    
+
     --gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     --gradient-accent: linear-gradient(135deg, var(--color-accent), var(--color-primary));
     --gradient-text: linear-gradient(135deg, #a78bfa, #22d3ee);
     --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-    
+
     --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
     --shadow-neon-cyan: 0 0 15px rgba(6, 182, 212, 0.4);
     --shadow-neon-purple: 0 0 15px rgba(139, 92, 246, 0.4);
-    
+
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
+
     --max-width: 1200px;
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -780,6 +780,7 @@ p {
     margin-bottom: 1.5rem;
     flex-grow: 1;
     display: -webkit-box;
+    line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -1090,31 +1091,31 @@ p {
         gap: 3.5rem;
         text-align: center;
     }
-    
+
     .hero-content {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .hero-visual {
         justify-content: center;
     }
-    
+
     .about-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -1125,24 +1126,24 @@ p {
     section {
         padding: 4.5rem 0;
     }
-    
+
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .section-title {
         font-size: 2.1rem;
     }
-    
+
     .main-header {
         padding: 0.5rem 0;
     }
-    
+
     .mobile-toggle {
         display: block;
         z-index: 101;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1159,35 +1160,101 @@ p {
         transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         z-index: 100;
     }
-    
+
     .nav-menu.open {
         right: 0;
     }
-    
+
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .projects-controls {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .search-wrapper {
         width: 100%;
     }
-    
+
     .filter-wrapper {
         overflow-x: auto;
         padding-bottom: 0.5rem;
     }
-    
+
     .contact-form-wrapper {
         padding: 2rem;
     }
-    
+
     .footer-container {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   Skills Tags
+   ========================================================================== */
+.skills-note {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin-bottom: 1.8rem;
+}
+
+.skills-category .skills-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skills-category .skills-list li {
+    padding: 10px 15px;
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.skills-category .skills-list li:hover {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: #8b5cf6;
+    transform: translateY(-3px);
+}
+
+.skills-category .skill-name {
+    margin: 0;
+    color: #e5e7eb;
+    font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skills-category .skills-list li:hover {
+        transform: none;
+    }
+}
+
+/* ==========================================================================
+   Services Section
+   ========================================================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.services-grid .about-feature-card {
+    min-width: 0;
+    height: 100%;
+}
+
+.services-grid .about-feature-card:hover {
+    transform: translateY(-6px);
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Mobile Menu Toggle ---
     const mobileToggle = document.getElementById('mobileToggle');
     const navMenu = document.getElementById('navMenu');
-    
+
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('open');
             const isOpen = navMenu.classList.contains('open');
             const iconName = isOpen ? 'x' : 'menu';
-            
+
             // Toggle icon
             mobileToggle.innerHTML = `<i data-lucide="${iconName}"></i>`;
             lucide.createIcons();
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Reveal Animations ---
     const revealElements = document.querySelectorAll('.scroll-reveal');
-    
+
     const revealObserverOptions = {
         root: null,
         rootMargin: '0px 0px -50px 0px',
@@ -94,7 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsGrid = document.getElementById('projectsGrid');
     const projectSearch = document.getElementById('projectSearch');
     const filterContainer = document.getElementById('filterContainer');
-    
+    const projectDescription = document.querySelector('#projects .section-description');
+
     let allProjects = [];
 
     // Language color mapping
@@ -119,34 +120,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // Static Fallback Projects (in case rate limit is hit or network is offline)
     const fallbackProjects = [
         {
-            name: 'AI-powered-SEO-content-production-Research',
-            cleanName: 'AI Powered SEO Content Production Research',
-            description: 'Research and development scripts for automating SEO optimized article generation leveraging advanced LLMs and NLP techniques.',
-            language: 'Python',
-            stars: 12,
-            forks: 3,
-            githubUrl: `https://github.com/${username}/AI-powered-SEO-content-production-Research`,
-            homepage: null
+            name: 'automatex-landing',
+            cleanName: 'AutomateX Landing Page',
+            description: 'A responsive automation agency landing page built with React and TypeScript.',
+            language: 'TypeScript',
+            stars: null,
+            forks: null,
+            githubUrl: 'https://github.com/Nijenth/automatex-landing',
+            homepage: 'https://nijenth.github.io/automatex-landing/',
+            isFallback: true
         },
         {
-            name: 'Newsletter-email-marketing-for-B2B-SaaS',
-            cleanName: 'Newsletter & Email Marketing for B2B SaaS',
-            description: 'A comprehensive, modern automation tool to build campaigns, write cold reachouts, and manage lists with custom analytics interfaces.',
-            language: 'JavaScript',
-            stars: 8,
-            forks: 1,
-            githubUrl: `https://github.com/${username}/Newsletter-email-marketing-for-B2B-SaaS`,
-            homepage: null
+            name: 'vibestore',
+            cleanName: 'VibeStore',
+            description: 'A React and TypeScript product-list demo with search, product management, and cart interactions.',
+            language: 'TypeScript',
+            stars: null,
+            forks: null,
+            githubUrl: 'https://github.com/Nijenth/vibestore',
+            homepage: null,
+            isFallback: true
         },
         {
-            name: 'Reddit-marketing-for-B2B-SaaS',
-            cleanName: 'Reddit Marketing for B2B SaaS',
-            description: 'AI-driven social listening client that identifies relevant conversations, schedules automated notifications, and highlights B2B growth avenues.',
-            language: 'Python',
-            stars: 15,
-            forks: 4,
-            githubUrl: `https://github.com/${username}/Reddit-marketing-for-B2B-SaaS`,
-            homepage: null
+            name: 'ai-startup-landing-page',
+            cleanName: 'NeuralFlow AI Landing Page',
+            description: 'A responsive startup landing page concept built using HTML, CSS, and JavaScript.',
+            language: 'HTML',
+            stars: null,
+            forks: null,
+            githubUrl: 'https://github.com/Nijenth/ai-startup-landing-page',
+            homepage: null,
+            isFallback: true
         }
     ];
 
@@ -158,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('API request failed');
             }
             const data = await response.json();
-            
+
             // Map GitHub response to custom project format
             allProjects = data
                 .filter(repo => !repo.fork) // Exclude forks
@@ -181,6 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('GitHub API failed, using high-quality local projects fallback:', error);
             allProjects = fallbackProjects;
         } finally {
+            if (projectDescription) {
+                const showingFallback = allProjects.some(project => project.isFallback);
+
+                projectDescription.textContent = showingFallback
+                    ? 'Showing saved project information (not live GitHub data).'
+                    : 'Dynamically pulled directly from my GitHub profile.';
+            }
+
             renderProjects(allProjects);
             generateFilterButtons(allProjects);
         }
@@ -189,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render projects list in grid
     function renderProjects(projectsToRender) {
         projectsGrid.innerHTML = '';
-        
+
         if (projectsToRender.length === 0) {
             projectsGrid.innerHTML = `
                 <div class="no-projects-message" style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--color-text-secondary);">
@@ -210,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const langLower = project.language.toLowerCase();
             const dotColor = langColors[langLower] || '#9ca3af';
 
-            const homeLinkHTML = project.homepage 
+            const homeLinkHTML = project.homepage
                 ? `<a href="${project.homepage}" target="_blank" rel="noopener noreferrer" class="project-icon-link" aria-label="Live Demo"><i data-lucide="external-link"></i></a>`
                 : '';
 
@@ -236,8 +248,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="lang-text">${project.language}</span>
                     </div>
                     <div class="project-stats">
-                        <span class="stat-val" title="Stars"><i data-lucide="star"></i> ${project.stars}</span>
-                        <span class="stat-val" title="Forks"><i data-lucide="git-fork"></i> ${project.forks}</span>
+                        ${Number.isFinite(project.stars) ? `
+                            <span class="stat-val" title="Stars">
+                                <i data-lucide="star"></i> ${project.stars}
+                            </span>
+                        ` : ''}
+                        ${Number.isFinite(project.forks) ? `
+                            <span class="stat-val" title="Forks">
+                                <i data-lucide="git-fork"></i> ${project.forks}
+                            </span>
+                        ` : ''}
                     </div>
                 </div>
             `;
@@ -316,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm && formMessage) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             // Get form values
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -337,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formMessage.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
                 formMessage.className = 'form-message success';
                 contactForm.reset();
-                
+
                 // Hide message after 5 seconds
                 setTimeout(() => {
                     formMessage.style.display = 'none';
