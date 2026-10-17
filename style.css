@@ -944,3 +944,275 @@ html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[da
   html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .site-nav { background:var(--surface); border-color:var(--line); }
   html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .nav-toggle { background:var(--surface); border-color:var(--line); }
 }
+
+
+/* ===============================================================
+   SIX-THEME HERO ILLUSTRATION — gradient glass + brushed-metal trim
+   The browser mockup and its two badges follow the active palette.
+   The illustration remains pure CSS (no external assets or JS).
+   =============================================================== */
+:root, html[data-theme="midnight"] {
+  --hero-panel-top: #202b49;
+  --hero-panel-middle: #151e34;
+  --hero-panel-bottom: #0b1122;
+  --hero-edge-bright: #c2bcfa;
+  --hero-edge-mid: #536285;
+  --hero-edge-dim: #232f51;
+  --hero-ink: #f6f6ff;
+  --hero-caption: #a9b9d7;
+  --hero-accent: #b5a4ff;
+  --hero-tag: #9bdeee;
+  --hero-rule: rgba(174, 193, 232, .20);
+  --hero-chip: rgba(9, 15, 32, .74);
+  --hero-chip-border: rgba(158, 177, 230, .18);
+  --hero-chip-text: #d9e1fa;
+  --hero-circle: #79d8f2;
+  --hero-diamond: #b5a1ff;
+  --hero-note-top: #293552;
+  --hero-note-bottom: #101a30;
+  --hero-note-ink: #f3f4ff;
+  --hero-metal-glint: rgba(217, 212, 255, .17);
+  --hero-glow: rgba(112, 94, 241, .22);
+}
+html[data-theme="pearl"]:root {
+  --hero-panel-top: #ffffff;
+  --hero-panel-middle: #f0f3fc;
+  --hero-panel-bottom: #dce5f4;
+  --hero-edge-bright: #ffffff;
+  --hero-edge-mid: #b2bfd8;
+  --hero-edge-dim: #879bbb;
+  --hero-ink: #24334d;
+  --hero-caption: #586987;
+  --hero-accent: #6d4cb8;
+  --hero-tag: #126a86;
+  --hero-rule: rgba(62, 85, 131, .21);
+  --hero-chip: rgba(255, 255, 255, .7);
+  --hero-chip-border: rgba(82, 104, 148, .23);
+  --hero-chip-text: #2d4267;
+  --hero-circle: #197a9b;
+  --hero-diamond: #7f61cc;
+  --hero-note-top: #fbfcff;
+  --hero-note-bottom: #d7dfef;
+  --hero-note-ink: #263755;
+  --hero-metal-glint: rgba(255, 255, 255, .7);
+  --hero-glow: rgba(119, 100, 200, .17);
+}
+html[data-theme="graphite"] {
+  --hero-panel-top: #38424b;
+  --hero-panel-middle: #262e35;
+  --hero-panel-bottom: #141a20;
+  --hero-edge-bright: #e2e6ea;
+  --hero-edge-mid: #7d8c9a;
+  --hero-edge-dim: #333d46;
+  --hero-ink: #f5f7f8;
+  --hero-caption: #c2cdd7;
+  --hero-accent: #dae3eb;
+  --hero-tag: #b9d8e2;
+  --hero-rule: rgba(196, 211, 222, .22);
+  --hero-chip: rgba(12, 18, 23, .68);
+  --hero-chip-border: rgba(195, 211, 219, .2);
+  --hero-chip-text: #e0e8ef;
+  --hero-circle: #bdd7de;
+  --hero-diamond: #d0d9e4;
+  --hero-note-top: #444e57;
+  --hero-note-bottom: #202a31;
+  --hero-note-ink: #f5f7f8;
+  --hero-metal-glint: rgba(240, 244, 248, .25);
+  --hero-glow: rgba(158, 190, 210, .15);
+}
+html[data-theme="nebula"] {
+  --hero-panel-top: #4d2c62;
+  --hero-panel-middle: #302040;
+  --hero-panel-bottom: #1b1029;
+  --hero-edge-bright: #efb6e5;
+  --hero-edge-mid: #86679b;
+  --hero-edge-dim: #3c254f;
+  --hero-ink: #fff3fc;
+  --hero-caption: #e5c9ee;
+  --hero-accent: #eda5e8;
+  --hero-tag: #e3b8ff;
+  --hero-rule: rgba(243, 186, 233, .21);
+  --hero-chip: rgba(25, 10, 39, .67);
+  --hero-chip-border: rgba(230, 170, 239, .21);
+  --hero-chip-text: #fbe5fa;
+  --hero-circle: #f1b5e6;
+  --hero-diamond: #c7a0ff;
+  --hero-note-top: #593269;
+  --hero-note-bottom: #2d183e;
+  --hero-note-ink: #fff3fc;
+  --hero-metal-glint: rgba(252, 201, 238, .19);
+  --hero-glow: rgba(222, 114, 204, .25);
+}
+html[data-theme="emerald"] {
+  --hero-panel-top: #205a4d;
+  --hero-panel-middle: #174235;
+  --hero-panel-bottom: #0b241e;
+  --hero-edge-bright: #a6e6bd;
+  --hero-edge-mid: #538f79;
+  --hero-edge-dim: #1c513f;
+  --hero-ink: #edfff3;
+  --hero-caption: #b3dfcf;
+  --hero-accent: #98eabc;
+  --hero-tag: #a8f2d3;
+  --hero-rule: rgba(177, 237, 204, .21);
+  --hero-chip: rgba(4, 31, 23, .7);
+  --hero-chip-border: rgba(144, 224, 189, .24);
+  --hero-chip-text: #d3ffe7;
+  --hero-circle: #9ee5c2;
+  --hero-diamond: #7cdbba;
+  --hero-note-top: #2b6957;
+  --hero-note-bottom: #143e30;
+  --hero-note-ink: #effff2;
+  --hero-metal-glint: rgba(194, 246, 213, .18);
+  --hero-glow: rgba(79, 193, 144, .24);
+}
+html[data-theme="amber"] {
+  --hero-panel-top: #68462b;
+  --hero-panel-middle: #462d1c;
+  --hero-panel-bottom: #281910;
+  --hero-edge-bright: #f9d49b;
+  --hero-edge-mid: #a67848;
+  --hero-edge-dim: #563a25;
+  --hero-ink: #fff1df;
+  --hero-caption: #efcfaa;
+  --hero-accent: #ffc98d;
+  --hero-tag: #ffe0ab;
+  --hero-rule: rgba(245, 204, 149, .23);
+  --hero-chip: rgba(37, 21, 12, .65);
+  --hero-chip-border: rgba(236, 180, 111, .22);
+  --hero-chip-text: #ffe4c5;
+  --hero-circle: #ffd18a;
+  --hero-diamond: #ebb071;
+  --hero-note-top: #735033;
+  --hero-note-bottom: #3b2618;
+  --hero-note-ink: #fff0db;
+  --hero-metal-glint: rgba(255, 221, 166, .23);
+  --hero-glow: rgba(238, 161, 79, .22);
+}
+
+/* Gradient fill lives in the padding box; the metallic edge follows
+   the border box. Unlike an overlay, this leaves text crisp. */
+html .hero-art .art-window {
+  color: var(--hero-ink);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(124deg, var(--hero-panel-top) 0%, var(--hero-panel-middle) 48%, var(--hero-panel-bottom) 100%) padding-box,
+    linear-gradient(145deg,
+      var(--hero-edge-bright) 0%,
+      var(--hero-edge-mid) 20%,
+      var(--hero-edge-dim) 62%,
+      var(--hero-edge-bright) 100%) border-box;
+  box-shadow:
+    inset 0 1px 0 var(--hero-metal-glint),
+    0 30px 72px rgba(0, 0, 0, .24),
+    0 0 54px var(--hero-glow);
+}
+.hero-art .window-bar {
+  background: linear-gradient(95deg, var(--hero-metal-glint), transparent 68%);
+  border-bottom: 1px solid var(--hero-rule);
+}
+.hero-art .window-label,
+.hero-art .window-dots { color: var(--hero-caption); }
+.hero-art .window-small-tag { color: var(--hero-tag); }
+.hero-art .window-headline { color: var(--hero-ink); }
+.hero-art .window-headline em { color: var(--hero-accent); }
+.hero-art .window-lines span { background: var(--hero-rule); }
+.hero-art .window-cards div {
+  background: var(--hero-chip);
+  border-color: var(--hero-chip-border);
+  color: var(--hero-chip-text);
+}
+.hero-art .tiny-circle { border-color: var(--hero-circle); }
+.hero-art .tiny-diamond { background: var(--hero-diamond); }
+html .hero-art .float-note {
+  color: var(--hero-note-ink);
+  border: 1px solid transparent;
+  background:
+    linear-gradient(140deg, var(--hero-note-top), var(--hero-note-bottom)) padding-box,
+    linear-gradient(135deg, var(--hero-edge-bright), var(--hero-edge-dim) 72%) border-box;
+  box-shadow: inset 0 1px 0 var(--hero-metal-glint), 0 18px 32px rgba(0,0,0,.21);
+}
+.hero-art .note-star { color: var(--hero-accent); }
+.hero-art .mini-code { color: var(--hero-tag); }
+.hero-art .art-halo {
+  background: radial-gradient(circle, var(--hero-glow), transparent 70%);
+  opacity: .9;
+}
+
+
+/* ====================================================================
+   THEME-AWARE HERO GLOW
+   Midnight / Pearl / Graphite / Nebula retain their original ambient
+   glow and illustration halo. Amber / Emerald use a broader, quieter
+   elliptical glow that hugs the illustration rather than projecting a
+   distinct bright circular spot onto the page background.
+   ==================================================================== */
+html:is([data-theme="emerald"], [data-theme="amber"]) .ambient-one {
+  /* Suppress the oversized 600px spotlight ONLY in these two palettes. */
+  opacity: 0;
+}
+html:is([data-theme="emerald"], [data-theme="amber"]) .hero-art .art-halo {
+  /* Keep the depth; use a wide, extremely soft asymmetric light pool. */
+  width: min(720px, 145%);
+  max-width: none;
+  height: 340px;
+  border-radius: 46% 54% 57% 43%;
+  transform: translate(20px, 6px) rotate(-8deg);
+  filter: blur(48px);
+  opacity: .72;
+}
+html[data-theme="emerald"] .hero-art .art-halo {
+  background: radial-gradient(ellipse 68% 50% at 53% 53%,
+    rgba(63, 186, 131, .34) 0%,
+    rgba(43, 148, 109, .15) 45%,
+    transparent 100%);
+}
+html[data-theme="amber"] .hero-art .art-halo {
+  background: radial-gradient(ellipse 68% 50% at 53% 53%,
+    rgba(227, 144, 66, .31) 0%,
+    rgba(170, 94, 40, .15) 45%,
+    transparent 100%);
+}
+
+/* Consistent directional, restrained elevation for every theme. */
+:root, html[data-theme="midnight"] {
+  --hero-shadow-main: rgba(0, 0, 0, .23);
+  --hero-shadow-close: rgba(0, 0, 0, .10);
+  --hero-badge-shadow: rgba(0, 0, 0, .16);
+}
+html[data-theme="pearl"] {
+  --hero-shadow-main: rgba(48, 64, 103, .15);
+  --hero-shadow-close: rgba(48, 64, 103, .08);
+  --hero-badge-shadow: rgba(48, 64, 103, .11);
+}
+html[data-theme="graphite"] {
+  --hero-shadow-main: rgba(0, 0, 0, .25);
+  --hero-shadow-close: rgba(0, 0, 0, .11);
+  --hero-badge-shadow: rgba(0, 0, 0, .17);
+}
+html[data-theme="nebula"] {
+  --hero-shadow-main: rgba(12, 5, 24, .23);
+  --hero-shadow-close: rgba(12, 5, 24, .10);
+  --hero-badge-shadow: rgba(12, 5, 24, .16);
+}
+html[data-theme="emerald"] {
+  --hero-shadow-main: rgba(2, 20, 14, .21);
+  --hero-shadow-close: rgba(2, 20, 14, .09);
+  --hero-badge-shadow: rgba(2, 20, 14, .15);
+}
+html[data-theme="amber"] {
+  --hero-shadow-main: rgba(25, 12, 5, .18);
+  --hero-shadow-close: rgba(25, 12, 5, .08);
+  --hero-badge-shadow: rgba(25, 12, 5, .13);
+}
+html .hero-art .art-window {
+  box-shadow:
+    inset 0 1px 0 var(--hero-metal-glint),
+    0 22px 42px var(--hero-shadow-main),
+    0 6px 14px var(--hero-shadow-close);
+}
+html .hero-art .float-note {
+  box-shadow:
+    inset 0 1px 0 var(--hero-metal-glint),
+    0 10px 21px var(--hero-badge-shadow);
+}
