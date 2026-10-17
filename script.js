@@ -329,40 +329,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Projects loading
     fetchGitHubRepos();
 
-    // --- Contact Form Submission Handler ---
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
-
-    if (contactForm && formMessage) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !email || !message) {
-                formMessage.textContent = 'Please fill out all fields.';
-                formMessage.className = 'form-message error';
-                return;
-            }
-
-            // Simulate form submission status
-            formMessage.textContent = 'Sending your message...';
-            formMessage.className = 'form-message';
-            formMessage.style.display = 'block';
-
-            setTimeout(() => {
-                formMessage.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
-                formMessage.className = 'form-message success';
-                contactForm.reset();
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }, 1500);
-        });
-    }
 });
