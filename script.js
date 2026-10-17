@@ -91,3 +91,68 @@ if (rocketLink) {
     }, 730);
   });
 }
+
+// Netlify Forms: the static HTML <form> above is discovered during Netlify
+// deployment. Here we send it without leaving the page.
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const submitLabel = contactForm.querySelector('.contact-submit-label');
+  const status = document.querySelector('#contact-status');
+
+  function setContactStatus(message, state = 'info') {
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.state = state;
+  }
+
+  contactForm.addEventListener('submit', async event => {
+    event.preventDefault();
+
+    if (submitButton.disabled || !contactForm.reportValidity()) return;
+
+    // Prevent fake "message sent" confirmations from local preview servers
+    // or the old GitHub Pages hosting domain, which cannot process Netlify Forms.
+    const previewHost = location.protocol === 'file:' ||
+      /^(localhost|127(?:\.\d{1,3}){3})$/i.test(location.hostname) ||
+      location.hostname.endsWith('.github.io');
+
+    if (previewHost) {
+      setContactStatus('Preview only — sending will work after deploying this version to Netlify.', 'info');
+      return;
+    }
+
+    const fields = new FormData(contactForm);
+    for (const key of ['name', 'email', 'message']) {
+      const value = String(fields.get(key) ?? '').trim();
+      if (!value) {
+        setContactStatus('Please complete your name, email and project details.', 'error');
+        return;
+      }
+      fields.set(key, value);
+    }
+
+    submitButton.disabled = true;
+    submitLabel.textContent = 'Sending…';
+    setContactStatus('Sending your message…', 'info');
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(fields).toString()
+      });
+
+      if (!response.ok) throw new Error(`Netlify returned HTTP ${response.status}`);
+
+      setContactStatus('Thanks! Your message has been submitted. I’ll be in touch.', 'success');
+      contactForm.reset();
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setContactStatus('Could not send your message. Please retry, or use the email link on the left.', 'error');
+    } finally {
+      submitButton.disabled = false;
+      submitLabel.textContent = 'Send Message';
+    }
+  });
+}
