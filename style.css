@@ -985,7 +985,31 @@ p {
     transition: var(--transition-fast);
 }
 
-.form-group input:focus, .form-group textarea:focus {
+
+/* Input and textarea focus styles */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+/* Keep Chrome autofill inputs dark */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0 1000px #151322 inset;
+    box-shadow: 0 0 0 1000px #151322 inset;
+    caret-color: #ffffff;
+}
+
+.form-group input:-webkit-autofill:focus {
+    border-color: var(--color-primary);
+}
+
+ .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
     background: rgba(255, 255, 255, 0.04);

@@ -336,9 +336,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm && formMessage) {
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const buttonText = submitButton.querySelector('span');
+        let successTimer;
 
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault();
+            clearTimeout(successTimer);
 
             // Prevent duplicate submissions
             if (submitButton.disabled) return;
@@ -368,6 +370,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 formMessage.textContent = 'Your message has been submitted successfully!';
                 formMessage.className = 'form-message success';
                 contactForm.reset();
+
+                successTimer = setTimeout(() => {
+                    formMessage.textContent = '';
+                    formMessage.className = 'form-message';
+                }, 5000);
             } catch (error) {
                 console.error('Contact form error:', error);
                 formMessage.textContent = 'Unable to send your message. Please try again.';
