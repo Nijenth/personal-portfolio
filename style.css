@@ -16,7 +16,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 95px; overflow-x: clip; }
-body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: clip; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--cyan); outline-offset: 5px; }
@@ -98,7 +98,7 @@ p { color: var(--muted); }
 .note-star { color: #c3a7ff; margin-right: 5px; }
 .mini-code { font: 700 1rem var(--font-head); color: #7bdbe1; margin-right: 6px; }
 .hero-foot { display: flex; justify-content: space-between; align-items: center; color: #65738b; border-top: 1px solid var(--line); margin-top: 83px; padding-top: 21px; letter-spacing: .22em; font-size: .66rem; font-weight: 700; }
-.hero-foot span:last-child { font-size: 1.15rem; color: #adc0df; }
+
 /* Shared intro */
 .kicker { color: var(--cyan); display: inline-block; margin-bottom: 18px; }
 .section-intro { display: flex; justify-content: space-between; align-items: end; gap: 45px; margin-bottom: 42px; }
@@ -340,3 +340,261 @@ p { color: var(--muted); }
   .ap-workflow { right: -130px; width: 208px; }
   .ap-navlist { display: none; }
 }
+
+
+/* --------------------------------------------------------------------
+   Four scroll navigation mice — matches the original grey-outline,
+   cyan-wheel indicator and reuses a single CSS animation.
+   -------------------------------------------------------------------- */
+.hero-foot {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  min-height: 62px;
+}
+
+.hero-foot > span:first-child {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.hero-foot > .scroll-mouse {
+  grid-column: 2;
+  justify-self: center;
+}
+
+.scroll-mouse {
+  position: relative;
+  display: flex;
+  flex: none;
+  justify-content: center;
+  width: 27px;
+  height: 43px;
+  padding-top: 8px;
+  border: 2px solid #7484a0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: border-color .3s ease;
+}
+
+/* Invisible larger click/touch area, without enlarging the mouse icon. */
+.scroll-mouse::before {
+  content: '';
+  position: absolute;
+  inset: -9px;
+}
+
+.scroll-mouse:hover,
+.scroll-mouse:focus-visible {
+  border-color: #22d3ee;
+}
+
+.scroll-mouse-wheel {
+  display: block;
+  flex: 0 0 4px;
+  width: 4px;
+  height: 8px;
+  background: #22d3ee;
+  border-radius: 4px;
+  animation: mouseScroll 1.8s ease-in-out infinite;
+}
+
+@keyframes mouseScroll {
+  0%   { transform: translateY(0); opacity: 0; }
+  35%  { opacity: 1; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+.section-scroll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(45px, 6vw, 85px);
+}
+
+@media (max-width: 640px) {
+  .hero-foot {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 16px;
+  }
+
+  .hero-foot > span:first-child {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .hero-foot > .scroll-mouse {
+    grid-column: 1;
+    justify-self: center;
+  }
+
+  .section-scroll {
+    margin-top: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-mouse-wheel {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ---------------------------------------------------------------
+   Minimal rocket — visible at the end of the page, with a real
+   launch-on-click animation. One control replaces the old text link.
+   --------------------------------------------------------------- */
+.rocket-return {
+  display: flex;
+  justify-content: center;
+  padding: 35px 0 43px;
+  border-bottom: 1px solid var(--line);
+}
+
+.rocket-top {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 116px;
+  padding: 6px 15px;
+  color: #c7d1e4;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rocket-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 76px;
+  border: 1px solid rgba(177, 193, 236, .20);
+  border-radius: 34px;
+  background: radial-gradient(ellipse at 50% 80%, rgba(121,225,229,.075), rgba(166,139,250,.035) 68%, transparent);
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.rocket-ship {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 32px;
+  height: 56px;
+  transition: transform .28s ease;
+  transform: translateY(-1px);
+}
+
+.rocket-svg {
+  display: block;
+  width: 32px;
+  height: 45px;
+  color: #9daecc;
+  transition: color .25s ease;
+}
+
+.rocket-flame {
+  position: absolute;
+  top: 43px;
+  left: 50%;
+  width: 7px;
+  height: 13px;
+  border-radius: 2px 2px 70% 70%;
+  background: linear-gradient(#c4b1ff 4%, #79e1e5 45%, transparent);
+  opacity: .6;
+  transform: translateX(-50%) scaleY(.75);
+  transform-origin: center top;
+  animation: rocket-idle-flame 1s ease-in-out infinite alternate;
+}
+
+.rocket-exhaust {
+  position: absolute;
+  bottom: 2px;
+  width: 2px;
+  height: 22px;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, rgba(121,225,229,.7), transparent);
+  opacity: 0;
+}
+.rocket-exhaust-left { left: 24px; }
+.rocket-exhaust-right { right: 24px; }
+
+.rocket-label {
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .19em;
+  color: #9aa9c2;
+  transition: color .25s ease;
+}
+
+.rocket-top:hover .rocket-stage,
+.rocket-top:focus-visible .rocket-stage {
+  border-color: rgba(121,225,229,.5);
+  box-shadow: 0 0 25px rgba(121,225,229,.08);
+}
+.rocket-top:hover .rocket-ship,
+.rocket-top:focus-visible .rocket-ship {
+  transform: translateY(-6px);
+}
+.rocket-top:hover .rocket-svg,
+.rocket-top:focus-visible .rocket-svg,
+.rocket-top:hover .rocket-label,
+.rocket-top:focus-visible .rocket-label {
+  color: var(--cyan);
+}
+
+@keyframes rocket-idle-flame {
+  from { transform: translateX(-50%) scaleY(.55); opacity: .35; }
+  to   { transform: translateX(-50%) scaleY(1); opacity: .85; }
+}
+
+@keyframes rocket-launch {
+  0%   { transform: translateY(-1px) scale(1); opacity: 1; }
+  20%  { transform: translateY(5px) scale(.97); opacity: 1; }
+  100% { transform: translateY(-120px) scale(.81); opacity: 0; }
+}
+
+@keyframes rocket-boost {
+  from { height: 19px; opacity: .8; }
+  to   { height: 27px; opacity: 1; }
+}
+
+@keyframes rocket-exhaust-trail {
+  0%, 20% { opacity: 0; transform: translateY(0) scaleY(.5); }
+  35%      { opacity: .85; }
+  100%     { opacity: 0; transform: translateY(20px) scaleY(2); }
+}
+
+.rocket-top.is-launching .rocket-ship {
+  animation: rocket-launch .72s cubic-bezier(.22,.68,.2,1) both;
+}
+.rocket-top.is-launching .rocket-flame {
+  animation: rocket-boost .13s ease-in-out infinite alternate;
+}
+.rocket-top.is-launching .rocket-exhaust {
+  animation: rocket-exhaust-trail .65s ease-out both;
+}
+.rocket-top.is-launching .rocket-exhaust-right {
+  animation-delay: .08s;
+}
+
+/* The footer stays compact on mobile. */
+@media (max-width: 580px) {
+  .rocket-return { padding: 30px 0 35px; }
+}
+
+/* Clicking still works, but without animation for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .rocket-ship, .rocket-svg, .rocket-stage, .rocket-label { transition: none; }
+  .rocket-flame { animation: none; opacity: .65; transform: translateX(-50%) scaleY(.7); }
+  .rocket-top.is-launching .rocket-ship,
+  .rocket-top.is-launching .rocket-flame,
+  .rocket-top.is-launching .rocket-exhaust { animation: none; }
+}
+
+/* Navigation entry for the dedicated project archive. */
+.site-nav a[aria-current="page"] { color: var(--cyan); }

@@ -70,3 +70,24 @@ if (!reducedMotion && window.matchMedia('(hover: hover)').matches) {
     });
   });
 }
+
+
+// Give the footer rocket time to launch before scrolling to the top.
+// The #home link still works normally if JavaScript is unavailable.
+const rocketLink = document.querySelector('.rocket-top');
+if (rocketLink) {
+  rocketLink.addEventListener('click', event => {
+    // Preserve native link behavior for reduced motion and modified clicks.
+    if (reducedMotion || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    event.preventDefault();
+    if (rocketLink.classList.contains('is-launching')) return;
+
+    rocketLink.classList.add('is-launching');
+    window.setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('home')?.focus({ preventScroll: true });
+      window.history.replaceState(null, '', '#home');
+      rocketLink.classList.remove('is-launching');
+    }, 730);
+  });
+}
