@@ -1,436 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Portfolio of Nijenth, a Creative AI Engineer specializing in Full Stack Development, UI/UX Design, and AI & Machine Learning. Check out my projects and skills.">
-    <meta name="author" content="Nijenth">
-    <title>Nijenth | Creative AI Engineer</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080b15">
+  <meta name="description" content="Nijenth is a frontend developer creating responsive websites, landing pages, and React interfaces. Explore selected projects and get in touch.">
+  <meta name="author" content="Nijenth">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nijenth — Frontend Developer">
+  <meta property="og:description" content="Responsive websites, thoughtful interfaces, and selected frontend projects.">
+  <title>Nijenth — Frontend Developer | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Background Orbs for Ambient Glow -->
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-3"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
-    <!-- Navigation Header -->
-    <header class="main-header">
-        <div class="container nav-container">
-            <a href="#home" class="logo">
-                <span class="logo-accent">&lt;</span>Nijenth<span class="logo-accent"> /&gt;</span>
-            </a>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#home" class="brand" aria-label="Nijenth, back to top">
+        <span class="brand-mark">N</span>
+        <span>Nijenth<span class="brand-period">.</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#projects">Work</a>
+        <a href="#services">What I do</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-contact">Let's talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
-                <i data-lucide="menu"></i>
-            </button>
+  <main id="main">
+    <section class="hero section" id="home" aria-labelledby="hero-heading">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Frontend developer <span class="eyebrow-sep">/</span> Open to freelance projects</div>
+          <h1 id="hero-heading">Good design.<br><span class="gradient-word">Working code.</span><br>Real projects.</h1>
+          <p class="hero-description">Hi, I'm Nijenth. I build responsive websites and interactive frontend experiences with a focus on clear layouts, thoughtful details, and usable interfaces.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="mailto:nijenth11@gmail.com?subject=Website%20project%20inquiry">Get in touch <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="stack-line"><span>Currently building with</span> HTML · CSS · JavaScript · React · TypeScript</p>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero-section">
-            <div class="container hero-container">
-                <div class="hero-content scroll-reveal">
-                    <span class="hero-badge">Available for Projects</span>
-                    <h1 class="hero-title">
-                        Hi, I'm <span class="gradient-text">Nijenth</span><br>
-                        <span class="typewriter-text">Frontend Developer & Creative Technologist</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        I'm a developer passionate about building modern, responsive websites and intuitive digital experiences. Currently focused on frontend development while expanding my knowledge of full-stack engineering and UI/UX design.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">
-                            <span>View My Work</span>
-                            <i data-lucide="arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Let's Connect</span>
-                            <i data-lucide="mail"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Graphic Element / Interactive Display -->
-                <div class="hero-visual scroll-reveal">
-                    <div class="tech-card-wrapper">
-                        <div class="tech-card">
-                            <div class="tech-card-header">
-                                <div class="window-dot red"></div>
-                                <div class="window-dot yellow"></div>
-                                <div class="window-dot green"></div>
-                                <span class="window-title">ai_agent.py</span>
-                            </div>
-                            <div class="tech-card-body">
-                                <pre><code><span class="keyword">class</span> <span class="class-name">CreativeAgent</span>:
-    <span class="keyword">def</span> <span class="method">__init__</span>(<span class="variable">self</span>):
-        <span class="variable">self</span>.skills = [
-            <span class="string">"Full-Stack"</span>,
-            <span class="string">"UI/UX"</span>,
-            <span class="string">"AI/ML"</span>
-        ]
-        <span class="variable">self</span>.status = <span class="string">"Building the future"</span>
-
-    <span class="keyword">def</span> <span class="method">create</span>(<span class="variable">self</span>):
-        <span class="keyword">return</span> <span class="string">"Smart apps & beautiful UIs"</span></code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="hero-art" aria-label="Illustrative browser interface showing frontend design elements">
+          <div class="art-halo" aria-hidden="true"></div>
+          <div class="art-window" aria-hidden="true">
+            <div class="window-bar"><span class="traffic"><i></i><i></i><i></i></span><span class="window-label">frontend / workspace</span><span class="window-dots">···</span></div>
+            <div class="window-body">
+              <div class="window-small-tag">01 / CREATIVE DEVELOPMENT</div>
+              <div class="window-headline">Make it<br><em>feel right.</em></div>
+              <div class="window-lines"><span></span><span></span><span></span></div>
+              <div class="window-cards"><div><span class="tiny-circle"></span><span>Responsive</span></div><div><span class="tiny-diamond"></span><span>Interactive</span></div></div>
             </div>
-
-            <a href="#about" class="scroll-indicator" aria-label="Scroll to About Section">
-                <span class="mouse-icon">
-                    <span class="wheel"></span>
-                </span>
-            </a>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
-                    <p class="section-description">My journey through development, design, and technology.</p>
-                </div>
-
-                <div class="about-grid">
-                    <!-- About Description -->
-                    <div class="about-info scroll-reveal">
-                        <h3 class="about-subtitle">Building at the Intersection of Code & Design</h3>
-                        <p>I'm Nijenth, a developer passionate about creating modern websites, interactive applications, and meaningful digital experiences.</p>
-                        <p>My current focus is frontend development, using HTML, CSS, JavaScript, React, and TypeScript. I'm also expanding my knowledge of full-stack engineering and exploring UI/UX design.</p>
-                        <p>I enjoy learning new technologies, solving problems, and transforming creative ideas into working projects.</p>
-
-                        <!-- Areas of Interest -->
-                        <div class="about-stats">
-                            <div class="stat-item">
-                                <span class="stat-number gradient-text">Web</span>
-                                <span class="stat-label">Frontend Focus</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number gradient-text">Stack</span>
-                                <span class="stat-label">Full-Stack Learning</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number gradient-text">UI/UX</span>
-                                <span class="stat-label">Design Exploration</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Expertise & Learning Cards -->
-                    <div class="about-cards scroll-reveal">
-                        <div class="about-feature-card">
-                            <div class="card-icon">
-                                <i data-lucide="code-2"></i>
-                            </div>
-                            <div>
-                                <h4>Frontend Development</h4>
-                                <p>Building responsive websites and interactive interfaces using modern frontend technologies.</p>
-                            </div>
-                        </div>
-
-                        <div class="about-feature-card">
-                            <div class="card-icon">
-                                <i data-lucide="layers"></i>
-                            </div>
-                            <div>
-                                <h4>Full-Stack Development</h4>
-                                <p>Learning backend systems, APIs, databases, and the architecture behind complete web applications.</p>
-                            </div>
-                        </div>
-
-                        <div class="about-feature-card">
-                            <div class="card-icon">
-                                <i data-lucide="palette"></i>
-                            </div>
-                            <div>
-                                <h4>UI/UX Design</h4>
-                                <p>Exploring interface design, visual hierarchy, usability, and user-centered experiences.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">What I <span class="gradient-text">Build</span></h2>
-                    <p class="section-description">Modern websites and interfaces for businesses, brands, and creative ideas.</p>
-                </div>
-
-                <div class="services-grid">
-                    <div class="about-feature-card scroll-reveal">
-                        <div class="card-icon">
-                            <i data-lucide="store"></i>
-                        </div>
-                        <div>
-                            <h4>Business Websites</h4>
-                            <p>Professional websites for cafés, restaurants, local businesses, and service providers.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-feature-card scroll-reveal">
-                        <div class="card-icon">
-                            <i data-lucide="shopping-cart"></i>
-                        </div>
-                        <div>
-                            <h4>E-commerce Interfaces</h4>
-                            <p>Responsive product catalogs, shopping cart interfaces, and storefront designs.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-feature-card scroll-reveal">
-                        <div class="card-icon">
-                            <i data-lucide="layout-template"></i>
-                        </div>
-                        <div>
-                            <h4>Landing Pages</h4>
-                            <p>Modern landing pages for startups, products, marketing, and personal brands.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-feature-card scroll-reveal">
-                        <div class="card-icon">
-                            <i data-lucide="monitor-smartphone"></i>
-                        </div>
-                        <div>
-                            <h4>Website Redesigns</h4>
-                            <p>Refreshing existing websites with better layouts, mobile responsiveness, and usability.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
-                    <p class="section-description">Technologies I work with, tools I use, and areas I'm currently exploring.</p>
-                </div>
-
-                <div class="skills-grid">
-                    <!-- Frontend Development -->
-                    <div class="skills-category scroll-reveal">
-                        <h3 class="category-title">
-                            <i data-lucide="code-2"></i>
-                            Frontend Development
-                        </h3>
-                        <p class="skills-note">My current development focus.</p>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">HTML5</span></li>
-                            <li><span class="skill-name">CSS3</span></li>
-                            <li><span class="skill-name">JavaScript</span></li>
-                            <li><span class="skill-name">React</span></li>
-                            <li><span class="skill-name">TypeScript</span></li>
-                            <li><span class="skill-name">Responsive Design</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Full-Stack Development -->
-                    <div class="skills-category scroll-reveal">
-                        <h3 class="category-title">
-                            <i data-lucide="layers"></i>
-                            Full-Stack Development
-                        </h3>
-                        <p class="skills-note">Expanding my knowledge beyond frontend.</p>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">Node.js Basics</span></li>
-                            <li><span class="skill-name">Backend Concepts</span></li>
-                            <li><span class="skill-name">REST APIs</span></li>
-                            <li><span class="skill-name">Database Fundamentals</span></li>
-                            <li><span class="skill-name">Application Architecture</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- UI/UX Design -->
-                    <div class="skills-category scroll-reveal">
-                        <h3 class="category-title">
-                            <i data-lucide="palette"></i>
-                            UI/UX Design
-                        </h3>
-                        <p class="skills-note">Exploring user-centered interface design.</p>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">Visual Design</span></li>
-                            <li><span class="skill-name">Typography</span></li>
-                            <li><span class="skill-name">Wireframing</span></li>
-                            <li><span class="skill-name">Figma (Exploring)</span></li>
-                            <li><span class="skill-name">Interaction Design</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Development Tools -->
-                    <div class="skills-category scroll-reveal">
-                        <h3 class="category-title">
-                            <i data-lucide="terminal"></i>
-                            Development Tools
-                        </h3>
-                        <p class="skills-note">Tools I use to build and deploy projects.</p>
-                        <ul class="skills-list">
-                            <li><span class="skill-name">Git</span></li>
-                            <li><span class="skill-name">GitHub</span></li>
-                            <li><span class="skill-name">Cursor IDE</span></li>
-                            <li><span class="skill-name">Vite</span></li>
-                            <li><span class="skill-name">Netlify</span></li>
-                            <li><span class="skill-name">Live Server</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-                    <p class="section-description">Dynamically pulled directly from my GitHub profile.</p>
-                </div>
-
-                <!-- Projects Controls -->
-                <div class="projects-controls scroll-reveal">
-                    <div class="search-wrapper">
-                        <i data-lucide="search" class="search-icon"></i>
-                        <input type="text" id="projectSearch" placeholder="Search projects...">
-                    </div>
-                    <div class="filter-wrapper" id="filterContainer">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                        <button class="filter-btn" data-filter="python">Python</button>
-                        <button class="filter-btn" data-filter="html">HTML/CSS</button>
-                    </div>
-                </div>
-
-                <!-- Projects Grid -->
-                <div class="projects-grid" id="projectsGrid">
-                    <!-- Skeleton Cards for Loading State -->
-                    <div class="project-skeleton">
-                        <div class="skeleton-header"></div>
-                        <div class="skeleton-body-1"></div>
-                        <div class="skeleton-body-2"></div>
-                        <div class="skeleton-footer"></div>
-                    </div>
-                    <div class="project-skeleton">
-                        <div class="skeleton-header"></div>
-                        <div class="skeleton-body-1"></div>
-                        <div class="skeleton-body-2"></div>
-                        <div class="skeleton-footer"></div>
-                    </div>
-                    <div class="project-skeleton">
-                        <div class="skeleton-header"></div>
-                        <div class="skeleton-body-1"></div>
-                        <div class="skeleton-body-2"></div>
-                        <div class="skeleton-footer"></div>
-                    </div>
-                </div>
-
-                <div class="more-projects scroll-reveal">
-                    <a href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                        <span>See More on GitHub</span>
-                        <i data-lucide="github"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
-                    <p class="section-description">Have a project idea, question, or just want to say hi?</p>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-info scroll-reveal">
-                        <h3 class="contact-subtitle">Let's build something amazing together!</h3>
-                        <p>I am always looking for collaborative opportunities, interesting projects, and new technologies to learn. Drop me a line, and let's start a conversation.</p>
-
-                        <div class="contact-details">
-                            <div class="contact-detail-item">
-                                <div class="detail-icon"><i data-lucide="mail"></i></div>
-                                <div class="detail-content">
-                                    <h5>Email</h5>
-                                    <a href="mailto:nijenth11@gmail.com">nijenth11@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-detail-item">
-                                <div class="detail-icon"><i data-lucide="map-pin"></i></div>
-                                <div class="detail-content">
-                                    <h5>Location</h5>
-                                    <span>Available Worldwide (Remote / Hybrid)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrapper scroll-reveal">
-                        <form id="contactForm" name="contact" class="contact-form" method="POST" data-netlify="true">
-                            <input type="hidden" name="form-name" value="contact">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required placeholder="Your Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <span>Send Message</span>
-                                <i data-lucide="send"></i>
-                            </button>
-                            <div class="form-message" id="formMessage"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container footer-container">
-            <p>&copy; 2026 Nijenth. All rights reserved.</p>
-            <div class="footer-socials">
-                <a href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i data-lucide="github"></i>
-                </a>
-                <a href="mailto:nijenth11@gmail.com" aria-label="Email">
-                    <i data-lucide="mail"></i>
-                </a>
-            </div>
+          </div>
+          <div class="float-note note-top" aria-hidden="true"><span class="note-star">✦</span> Built with care</div>
+          <div class="float-note note-bottom" aria-hidden="true"><span class="mini-code">&lt;/&gt;</span> Details matter</div>
         </div>
-    </footer>
+      </div>
+      <div class="container hero-foot"><span>SELECTED WORK BELOW</span><span aria-hidden="true">↓</span></div>
+    </section>
 
-    <!-- Custom Script -->
-    <script src="script.js"></script>
+    <section class="section work-section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div><span class="kicker">01 / SELECTED WORK</span><h2 id="projects-heading">Proof over <span class="text-soft">promises.</span></h2></div>
+          <p>These are independent learning and portfolio projects, not paid client commissions. Each one represents something I've built and practiced.</p>
+        </div>
+
+        <article class="project-featured reveal">
+          <div class="featured-media" role="img" aria-label="Decorative conceptual illustration of an AutomateX website and automation workflow; not an application screenshot">
+            <div class="automatex-preview" aria-hidden="true">
+              <div class="ap-nav">
+                <span class="ap-brand"><span class="ap-logo">✳</span> automate<span>X</span></span>
+                <span class="ap-navlist">Solutions &nbsp; About &nbsp; Contact</span>
+                <span class="ap-nav-arrow">↗</span>
+              </div>
+              <div class="ap-main">
+                <span class="ap-eyebrow">AUTOMATION / MADE SIMPLE</span>
+                <div class="ap-title">Let your ideas<br><em>run on autopilot.</em></div>
+                <span class="ap-description">A concept for smarter business workflows.</span>
+                <span class="ap-cta">Explore solutions ↗</span>
+              </div>
+              <div class="ap-workflow">
+                <div class="ap-workflow-top"><span><i></i> WORKFLOW EXAMPLE</span><span>● ● ●</span></div>
+                <div class="ap-workflow-row"><span class="ap-node">01</span><span class="ap-step">New inquiry received</span><span class="ap-check">✓</span></div>
+                <div class="ap-workflow-row"><span class="ap-node">02</span><span class="ap-step">Sort &amp; organize</span><span class="ap-check">✓</span></div>
+                <div class="ap-workflow-row"><span class="ap-node">03</span><span class="ap-step">Send follow-up</span><span class="ap-check">✓</span></div>
+              </div>
+            </div>
+            <span class="image-label">STYLIZED ILLUSTRATION · NOT A SCREENSHOT</span>
+          </div>
+          <div class="featured-content">
+            <span class="project-index">FEATURED PROJECT / 01</span>
+            <h3>AutomateX<span class="project-mark">✦</span></h3>
+            <p>A responsive landing page concept for an automation agency, built with React and TypeScript. Focused on page structure, interactive elements, and visual polish—not a functioning AI platform.</p>
+            <div class="tag-list" aria-label="Technologies"><span>React</span><span>TypeScript</span><span>CSS</span><span>Netlify</span></div>
+            <div class="project-links">
+              <a href="https://nijenth.github.io/automatex-landing/" target="_blank" rel="noopener noreferrer">Live website <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Nijenth/automatex-landing" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-illustration store-illustration" aria-hidden="true">
+              <div class="preview-bar"><span class="preview-dot"></span> VibeStore <span class="preview-mini">▦</span></div>
+              <div class="store-preview"><div class="store-search"></div><div class="store-cards"><span><i></i><b></b><small></small></span><span><i></i><b></b><small></small></span><span><i></i><b></b><small></small></span></div></div>
+            </div>
+            <div class="project-card-copy">
+              <span class="project-index">FRONTEND PRACTICE / 02</span>
+              <h3>VibeStore</h3>
+              <p>A React and TypeScript product-list demo exploring component state, searching, adding products, and cart interactions.</p>
+              <div class="tag-list"><span>React</span><span>TypeScript</span><span>Vite</span></div>
+              <a class="text-link" href="https://github.com/Nijenth/vibestore" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-illustration neural-illustration" aria-hidden="true">
+              <div class="preview-bar"><span class="preview-dot purple"></span> NeuralFlow <span class="preview-mini">✳</span></div>
+              <div class="neural-preview"><span class="neural-badge">AI STARTUP CONCEPT</span><strong>Build ideas<br>into reality.</strong><span class="neural-cta"></span><div class="neural-orb"></div></div>
+            </div>
+            <div class="project-card-copy">
+              <span class="project-index">LANDING PAGE / 03</span>
+              <h3>NeuralFlow AI</h3>
+              <p>A responsive startup landing page concept made with HTML, CSS, and JavaScript, exploring layout, gradients, hover states and navigation.</p>
+              <div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+              <a class="text-link" href="https://github.com/Nijenth/ai-startup-landing-page" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
+        <p class="illustration-note">The two smaller project illustrations are decorative representations, not screenshots of the applications.</p>
+        <a class="all-projects" href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer">Browse other repositories on GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div><span class="kicker">02 / WHAT I DO</span><h2 id="services-heading">Where I can <span class="text-soft">help.</span></h2></div>
+          <p>My current focus is frontend work—the pages and interfaces people see, use and interact with.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal"><span class="service-icon" aria-hidden="true">⌘</span><span class="service-number">01</span><h3>Landing pages</h3><p>Clean, modern pages with compelling structure, responsive layouts and clear calls to action.</p></div>
+          <div class="service-card reveal"><span class="service-icon" aria-hidden="true">▤</span><span class="service-number">02</span><h3>Responsive websites</h3><p>Interfaces that adapt across desktops, tablets and phones with careful attention to spacing and readability.</p></div>
+          <div class="service-card reveal"><span class="service-icon" aria-hidden="true">◈</span><span class="service-number">03</span><h3>React interfaces</h3><p>Component-based frontend development, UI states and interactive experiences using React and TypeScript.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="about-heading">
+      <div class="container about-layout">
+        <div class="about-art reveal" aria-hidden="true"><div class="about-monogram">N<span>.</span></div><div class="about-art-caption">BUILDING · LEARNING · IMPROVING</div></div>
+        <div class="about-copy reveal">
+          <span class="kicker">03 / A LITTLE ABOUT ME</span>
+          <h2 id="about-heading">Curious by nature.<br><span class="text-soft">Practical by choice.</span></h2>
+          <p>I'm Nijenth, a developer growing my frontend skills through hands-on projects. I enjoy turning an idea into a working interface and improving the small details that make a site feel polished.</p>
+          <p>I'm currently focused on responsive web development, JavaScript, React, and TypeScript. I value clear communication, realistic project scope, and learning by building.</p>
+          <a class="text-link" href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer">See what I'm building on GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <span class="kicker">04 / LET'S CONNECT</span>
+          <h2 id="contact-heading">Have a website in mind?<br><span class="gradient-word">Let's talk about it.</span></h2>
+          <p>Tell me what you're trying to build and what you need. Email is the best way to reach me.</p>
+          <a class="button button-primary contact-button" href="mailto:nijenth11@gmail.com?subject=Website%20project%20inquiry">Email me about your project <span aria-hidden="true">↗</span></a>
+          <a class="email-link" href="mailto:nijenth11@gmail.com">nijenth11@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><div>© <span id="year">2026</span> Nijenth. Designed to keep things honest.</div><div><a href="https://github.com/Nijenth" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="mailto:nijenth11@gmail.com">Email ↗</a><a href="#home">Back to top ↑</a></div></div></footer>
 </body>
 </html>

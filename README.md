@@ -1,80 +1,61 @@
-# 🌌 Nijenth's Personal Portfolio
+# Nijenth — Frontend Developer Portfolio (v2)
 
-A premium, interactive, and responsive portfolio website showcasing my work, skills, and journey as a **Creative AI Engineer**. Built using modern design aesthetics, smooth interactions, and dynamic integrations.
+A responsive personal portfolio featuring selected frontend projects. Built with **HTML, CSS, and vanilla JavaScript** for straightforward maintenance and GitHub Pages hosting.
 
-🌐 **Live Demo:** [Nijenth's Portfolio](https://github.com/Nijenth/personal-portfolio) *(Update with your deployed link, e.g., GitHub Pages)*
+**Live portfolio:** https://nijenth.github.io/personal-portfolio/
 
----
+## What changed from v1
 
-## ✨ Features
+- Replaced broad AI-engineering, full-stack and skill-percentage claims with a focused frontend introduction.
+- Featured **AutomateX**, **VibeStore**, and **NeuralFlow AI**, with links to their actual source repositories.
+- Removed the GitHub API project feed and its invented fallback star/fork statistics.
+- Removed the contact form that previously only simulated success. The new contact CTA opens an email draft (`mailto:`); it does not claim to send a message automatically.
+- Kept the dark visual direction while replacing the page structure and styles with a more focused, responsive portfolio.
+- Added keyboard-friendly navigation, reduced-motion support, progressive enhancement for scroll effects, and clearer project-scope wording.
 
-- **Modern Glassmorphic Design:** A visually striking aesthetic featuring ambient gradient glow orbs, sleek layout components, and custom typewriter text effects.
-- **Dynamic GitHub Repository Fetching:** Automatically queries the GitHub API to showcase my latest projects, complete with statistics (stars/forks), language indicators, search filtration, and fallback configurations in case of rate limits.
-- **Interactive Tech Stack Cards:** Incorporates interactive code snippet representations and smooth, high-fidelity card layouts.
-- **Scroll Reveal Animations:** Powered by `IntersectionObserver` to reveal content gracefully as the user scrolls.
-- **Responsive & Accessible Navigation:** A modern header navigation bar that shrinks on scroll and collapses into a responsive sidebar menu for mobile screens.
-- **Contact Form Simulation:** A styled contact form with instant validation, simulated request handling, and user feedback animations.
+## Featured projects
 
----
+| Project | Type | Links |
+| --- | --- | --- |
+| **AutomateX** | React + TypeScript agency landing page concept | [Live demo](https://nijenth.github.io/automatex-landing/) · [Source](https://github.com/Nijenth/automatex-landing) |
+| **VibeStore** | React + TypeScript product-list demo | [Source](https://github.com/Nijenth/vibestore) |
+| **NeuralFlow AI** | HTML/CSS/JS startup landing page concept | [Source](https://github.com/Nijenth/ai-startup-landing-page) |
 
-## 🛠️ Technology Stack
+These are **independent frontend learning/portfolio projects**, not commissioned client work or working AI backend products.
 
-- **Frontend Core:** HTML5, Modern Vanilla CSS3 (Custom Variables, Flexbox, CSS Grid), and Vanilla JavaScript (ES6+).
-- **Icons & Fonts:** [Lucide Icons](https://lucide.dev/) for clean vector icons and [Google Fonts](https://fonts.google.com/) (Outfit & Inter) for typography.
-- **API Integrations:** [GitHub REST API](https://docs.github.com/en/rest) for real-time portfolio projects ingestion.
+## Project visuals
 
----
+- The AutomateX panel is a **self-contained CSS mockup** to illustrate the category of work. It is NOT a real screenshot of that application.
+- The VibeStore and NeuralFlow panels are also **decorative illustrations**, not screenshots of those applications. Replace them with real captures for stronger credibility.
+- No project images are loaded from external servers. The CSS illustrations work offline.
 
-## 🚀 Getting Started
-
-To run this project locally, follow these simple steps:
-
-### Prerequisites
-
-You only need a modern web browser to run the static site.
-
-### Installation
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/Nijenth/personal-portfolio.git
-   cd personal-portfolio
-   ```
-
-2. **Open the Project:**
-   Simply double-click `index.html` to open it in your default web browser, or serve it locally using a development server (e.g., Live Server in VS Code).
-
----
-
-## 📁 Project Structure
+## Files
 
 ```text
 personal-portfolio/
-├── index.html       # Main HTML document outlining structure & accessibility tags
-├── style.css        # Responsive stylesheet with global variables, gradients, and custom components
-├── script.js       # Handles mobile menu, scroll reveal, GitHub API fetching, search/filter, and form handlers
-└── README.md        # This detailed project documentation
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 ```
 
----
+## Preview locally
 
-## 🎨 Customizing the Portfolio
+Open the folder in Cursor and right-click `index.html` → **Open with Live Server**. No Node.js, npm, Vite, or build step is needed.
 
-### Changing the GitHub Username
-To display your own projects, open [script.js](file:///c:/Users/NIJENTH/personal-portfolio/script.js) and update the `username` constant at line 93:
-```javascript
-const username = 'YourGitHubUsername';
+## Publish on GitHub Pages
+
+This is a static website. Once you're happy with the local version:
+
+```powershell
+git add index.html style.css script.js README.md
+git commit -m "Refresh frontend portfolio v2"
+git push origin main
 ```
 
-### Modifying Your Fallback Projects
-If the API rate limit is reached, a set of high-quality fallback projects is displayed. You can customize this list in [script.js](file:///c:/Users/NIJENTH/personal-portfolio/script.js) starting at line 120 (`fallbackProjects`).
+The existing GitHub Pages deployment should update if the repository is already configured to publish from `main` / root. If it uses a different source, follow the repository's Pages settings.
 
----
+## Contact
 
-## 📬 Connect with Me
-
-- **Email:** [nijenth11@gmail.com](mailto:nijenth11@gmail.com)
-- **GitHub:** [@Nijenth](https://github.com/Nijenth)
-
----
-*Created with ❤️ by Nijenth*
+**Email:** [nijenth11@gmail.com](mailto:nijenth11@gmail.com)  
+**GitHub:** [Nijenth](https://github.com/Nijenth)
