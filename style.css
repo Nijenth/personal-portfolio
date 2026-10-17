@@ -52,7 +52,13 @@ p { color: var(--muted); }
 .eyebrow { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 11px; color: #c8d0df; margin-bottom: 30px; letter-spacing: .12em; }
 .eyebrow-sep { color: #59657e; }
 .status-dot { width: 8px; height: 8px; background: #77e1be; border-radius: 50%; box-shadow: 0 0 16px rgba(119,225,190,.65); }
-.hero h1 { font-size: clamp(3.35rem, 5.4vw, 5.7rem); line-height: 1.06; font-weight: 600; margin-bottom: 27px; }
+
+.hero h1 {
+  font-size: clamp(3.1rem, 4.3vw, 4.2rem);
+  line-height: 1.06;
+  font-weight: 600;
+  margin-bottom: 27px;
+}
 .gradient-word { background: var(--gradient); background-clip: text; -webkit-background-clip: text; color: transparent; }
 .hero-description { max-width: 550px; font-size: 1.14rem; line-height: 1.82; margin-bottom: 32px; }
 .hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
