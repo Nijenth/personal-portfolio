@@ -329,4 +329,53 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Projects loading
     fetchGitHubRepos();
 
+    // --- Netlify Contact Form Handler ---
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    if (contactForm && formMessage) {
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const buttonText = submitButton.querySelector('span');
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // Prevent duplicate submissions
+            if (submitButton.disabled) return;
+
+            submitButton.disabled = true;
+            buttonText.textContent = 'Sending...';
+
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+
+            try {
+                const formData = new FormData(contactForm);
+
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Submission failed: ${response.status}`);
+                }
+
+                // Only show success after successful HTTP response
+                formMessage.textContent = 'Your message has been submitted successfully!';
+                formMessage.className = 'form-message success';
+                contactForm.reset();
+            } catch (error) {
+                console.error('Contact form error:', error);
+                formMessage.textContent = 'Unable to send your message. Please try again.';
+                formMessage.className = 'form-message error';
+            } finally {
+                submitButton.disabled = false;
+                buttonText.textContent = 'Send Message';
+            }
+        });
+    }
 });
