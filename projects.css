@@ -117,3 +117,69 @@
   .archive-cta .button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .repo-skeleton div,.repo-skeleton i,.repo-skeleton span { animation: none; } .repo-card { transition: none; } .repo-card:hover { transform: none; } }
+
+/* Project Archive light mode — matching homepage palette. */
+html[data-theme="pearl"] .archive-breadcrumb { color: #5c6d8b; }
+html[data-theme="pearl"] .archive-breadcrumb a { color: #425472; }
+html[data-theme="pearl"] .archive-breadcrumb span[aria-current="page"] { color: #465775; }
+html[data-theme="pearl"] .archive-overline { color: #087589; }
+html[data-theme="pearl"] .archive-data-source { color: #465776; border-color: #d6daed; background: #fff; }
+html[data-theme="pearl"] .archive-explorer { background: #eff3fa; }
+html[data-theme="pearl"] .archive-toolbar { background: #fff; border-color: #dce1ee; box-shadow: 0 15px 32px rgba(37,57,108,.035); }
+html[data-theme="pearl"] .archive-search-wrap label,
+html[data-theme="pearl"] .archive-select-wrap label { color: #51607e; }
+html[data-theme="pearl"] .archive-search-field,
+html[data-theme="pearl"] .archive-select-wrap select { background: #f8faff; border-color: #cbd4e6; color: #283954; }
+html[data-theme="pearl"] .archive-search-field input { color: #19223a; }
+html[data-theme="pearl"] .archive-search-field input::placeholder { color: #6b7892; }
+html[data-theme="pearl"] .keycap { color: #536782; border-color: #cbd4e6; }
+html[data-theme="pearl"] .clear-filters { color: #354764; border-color: #cbd4e6; }
+html[data-theme="pearl"] .clear-filters:hover,
+html[data-theme="pearl"] .clear-filters:focus-visible { color: #6e48b9; }
+html[data-theme="pearl"] .repo-results-bar { color: #4e5d78; }
+html[data-theme="pearl"] .repo-results-bar a { color: #2f507f; }
+html[data-theme="pearl"] .repo-card { background: #fff; border-color: #dce2ef; box-shadow: 0 13px 28px rgba(36,52,99,.035); }
+html[data-theme="pearl"] .repo-mark { color: #7650c8; background: #f1ebff; border-color: #dfd4f8; }
+html[data-theme="pearl"] .repo-public-label { color: #5e6b86; }
+html[data-theme="pearl"] .repo-facts { color: #4e607a; border-color: #e4e8f1; }
+html[data-theme="pearl"] .repo-date { color: #586985; }
+html[data-theme="pearl"] .repo-links a { color: #2e4977; }
+html[data-theme="pearl"] .repo-skeleton { background: #fff; border-color: #dce2ef; }
+html[data-theme="pearl"] .repo-skeleton div,
+html[data-theme="pearl"] .repo-skeleton i,
+html[data-theme="pearl"] .repo-skeleton span { background-image: linear-gradient(90deg,#e8edf7 15%,#d6dff1 49%,#e8edf7 85%); }
+html[data-theme="pearl"] .repo-empty { background: #fff; border-color: #dce2ef; }
+html[data-theme="pearl"] .repo-alert { background: #fff6f8; border-color: #ebb8c6; }
+html[data-theme="pearl"] .repo-alert button,
+html[data-theme="pearl"] .repo-empty button { color: #395376; border-color: #9db1d6; }
+html[data-theme="pearl"] .archive-api-note { color: #61718b; }
+html[data-theme="pearl"] .archive-cta-panel { background: radial-gradient(ellipse at 30% 0%,rgba(165,139,241,.14),transparent 75%),#fff; border-color: #e0daf1; }
+
+/* Archive surfaces for Graphite, Nebula, Emerald and Amber. */
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-explorer { background:var(--theme-section); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-breadcrumb,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-breadcrumb span[aria-current="page"] { color:var(--muted); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-overline { color:var(--cyan); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-data-source,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-toolbar,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-empty,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-alert { background:var(--surface); color:var(--soft); border-color:var(--line); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-search-field,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-select-wrap select { background:var(--theme-field); color:var(--text); border-color:var(--line); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-search-field input { color:var(--text); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-search-wrap label,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-select-wrap label { color:var(--soft); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-card { background:linear-gradient(145deg,var(--surface),var(--theme-card)); border-color:var(--line); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-mark { color:var(--cyan); background:var(--theme-accent-bg); border-color:var(--line); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-links a { color:var(--theme-link); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-public-label,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-results-bar,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-date,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-facts { color:var(--muted); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-skeleton { background:var(--surface); border-color:var(--line); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-skeleton div,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-skeleton i,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-skeleton span { background-image:linear-gradient(90deg,var(--surface-2),var(--theme-art),var(--surface-2)); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .archive-cta-panel { background:radial-gradient(ellipse at 30% 0%,var(--theme-glow),transparent 75%),var(--surface); border-color:var(--line); }
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-empty button,
+html:is([data-theme="graphite"],[data-theme="nebula"],[data-theme="emerald"],[data-theme="amber"]) .repo-alert button { color:var(--theme-link); border-color:var(--line); }

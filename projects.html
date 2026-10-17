@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#080b15">
   <meta name="description" content="Explore Nijenth's public GitHub repositories, project source code, live demos, languages, and activity.">
   <meta name="author" content="Nijenth">
@@ -14,8 +14,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    // Restore the theme before the CSS paints; honor saved dark/light choices.
+    try {
+      const stored = localStorage.getItem('nijenth-portfolio-theme');
+      const valid = ['midnight','pearl','graphite','nebula','emerald','amber'];
+      document.documentElement.dataset.theme = valid.includes(stored) ? stored : stored === 'light' ? 'pearl' : 'midnight';
+    } catch (_) {
+      document.documentElement.dataset.theme = 'midnight';
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="projects.css">
+  <script src="theme-picker.js" defer></script>
   <script src="script.js" defer></script>
   <script src="projects.js" defer></script>
 </head>
@@ -30,16 +41,67 @@
         <span class="brand-mark">N</span>
         <span>Nijenth<span class="brand-period">.</span></span>
       </a>
-      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation menu">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
+      <div class="header-controls">
+        <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
         <a href="index.html#projects">Work</a>
         <a href="projects.html" aria-current="page">All Projects</a>
         <a href="index.html#services">What I do</a>
         <a href="index.html#about">About</a>
         <a href="index.html#contact" class="nav-contact">Let's talk <span aria-hidden="true">↗</span></a>
       </nav>
+      <div class="theme-picker">
+        <button class="theme-trigger" type="button" aria-label="Choose website theme" aria-expanded="false" aria-controls="theme-panel" title="Choose website theme">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 1.2-4.7 1.6 1.6 0 0 1 .8-3h2A4.5 4.5 0 0 0 22 8.8C22 5.6 17.5 3 12 3Z"/>
+            <circle cx="6.8" cy="11.5" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="9.7" cy="7.3" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="15" cy="7" r="1" fill="currentColor" stroke="none"/>
+            <circle cx="17.9" cy="11" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="theme-trigger-label">Themes</span>
+          <svg class="theme-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="theme-panel" id="theme-panel" hidden>
+          <div class="theme-panel-head"><span>Choose your atmosphere</span><span class="theme-panel-deco" aria-hidden="true">✦</span></div>
+          <div class="theme-option-grid" role="group" aria-label="Color themes">
+          <button type="button" class="theme-option" data-theme-choice="midnight" aria-pressed="true">
+            <span class="theme-swatch swatch-midnight" aria-hidden="true"></span>
+            <span class="theme-option-name">Midnight</span>
+            <svg class="theme-check" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-choice="pearl" aria-pressed="false">
+            <span class="theme-swatch swatch-pearl" aria-hidden="true"></span>
+            <span class="theme-option-name">Pearl</span>
+            <svg class="theme-check" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-choice="graphite" aria-pressed="false">
+            <span class="theme-swatch swatch-graphite" aria-hidden="true"></span>
+            <span class="theme-option-name">Graphite</span>
+            <svg class="theme-check" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-choice="nebula" aria-pressed="false">
+            <span class="theme-swatch swatch-nebula" aria-hidden="true"></span>
+            <span class="theme-option-name">Nebula</span>
+            <svg class="theme-check" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-choice="emerald" aria-pressed="false">
+            <span class="theme-swatch swatch-emerald" aria-hidden="true"></span>
+            <span class="theme-option-name">Emerald</span>
+            <svg class="theme-check" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+          <button type="button" class="theme-option" data-theme-choice="amber" aria-pressed="false">
+            <span class="theme-swatch swatch-amber" aria-hidden="true"></span>
+            <span class="theme-option-name">Amber</span>
+            <svg class="theme-check" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>
+          </button>
+          </div>
+          <p class="theme-panel-note">Saved automatically for your next visit.</p>
+        </div>
+      </div>
+      <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      </div>
     </div>
   </header>
 

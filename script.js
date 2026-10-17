@@ -114,7 +114,7 @@ if (contactForm) {
     // Prevent fake "message sent" confirmations from local preview servers
     // or the old GitHub Pages hosting domain, which cannot process Netlify Forms.
     const previewHost = location.protocol === 'file:' ||
-      /^(localhost|127(?:\.\d{1,3}){3})$/i.test(location.hostname) ||
+      /^(localhost|127(?:\\.\\d{1,3}){3})$/i.test(location.hostname) ||
       location.hostname.endsWith('.github.io');
 
     if (previewHost) {
